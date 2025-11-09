@@ -1,0 +1,183 @@
+import { useState } from "react";
+import { ChatMessage } from "@/components/ChatMessage";
+import { ChatInput } from "@/components/ChatInput";
+import { Button } from "@/components/ui/button";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { LayoutDashboard, MessageSquare, Sparkles, LogOut } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { ProtectedRoute } from "@/components/ProtectedRoute";
+import { useAuth } from "@/hooks/useAuth";
+
+interface Message {
+  id: string;
+  content: string;
+  isUser: boolean;
+  timestamp: Date;
+}
+
+const IndexContent = () => {
+  const navigate = useNavigate();
+  const { signOut, user } = useAuth();
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      id: "welcome",
+      content:
+        "Oi! 👋 Sou seu assistente financeiro pessoal. Pode me contar sobre seus gastos de forma natural, tipo: 'gastei R$ 45 no almoço hoje' ou 'recebi R$ 200 de freelance'. Vou te ajudar a manter tudo organizado!",
+      isUser: false,
+      timestamp: new Date(),
+    },
+  ]);
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  const handleSendMessage = async (message: string) => {
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      content: message,
+      isUser: true,
+      timestamp: new Date(),
+    };
+
+    setMessages((prev) => [...prev, userMessage]);
+    setIsProcessing(true);
+
+    // Simulate AI processing (will be replaced with real AI later)
+    setTimeout(() => {
+      const responses = [
+        "Anotado! 👍 Registrei esse gasto pra você.",
+        "Feito! Salvei aqui.",
+        "Entendido! Já está registrado.",
+        "Perfeito! Anotei esse valor.",
+      ];
+
+      const aiMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        content: responses[Math.floor(Math.random() * responses.length)],
+        isUser: false,
+        timestamp: new Date(),
+      };
+
+      setMessages((prev) => [...prev, aiMessage]);
+      setIsProcessing(false);
+    }, 800);
+  };
+
+  return (
+    <div className="flex flex-col h-screen bg-background">
+      {/* Header */}
+      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-10">
+        <div className="flex items-center justify-between px-4 py-3 max-w-4xl mx-auto">
+          <div className="flex items-center gap-2">
+            <div className="p-2 bg-gradient-to-br from-primary to-primary/80 rounded-xl shadow-soft">
+              <Sparkles className="h-5 w-5 text-primary-foreground" />
+            </div>
+            <div>
+              <h1 className="font-bold text-lg">Meu Financeiro</h1>
+              <p className="text-xs text-muted-foreground">
+                Olá, {user?.user_metadata?.full_name || user?.email}
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => navigate("/dashboard")}
+              className="gap-2"
+            >
+              <LayoutDashboard className="h-4 w-4" />
+              <span className="hidden sm:inline">Dashboard</span>
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => signOut()}
+              className="gap-2"
+            >
+              <LogOut className="h-4 w-4" />
+              <span className="hidden sm:inline">Sair</span>
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      {/* Chat Area */}
+      <ScrollArea className="flex-1 px-4">
+        <div className="max-w-4xl mx-auto py-6 space-y-4">
+          {messages.length === 1 && (
+            <div className="text-center py-8 space-y-4">
+              <div className="inline-flex p-4 bg-primary/10 rounded-2xl">
+                <MessageSquare className="h-8 w-8 text-primary" />
+              </div>
+              <div className="space-y-2">
+                <h2 className="text-xl font-semibold">
+                  Comece a conversar!
+                </h2>
+                <p className="text-sm text-muted-foreground max-w-md mx-auto">
+                  Registre seus gastos de forma natural. Eu vou entender e
+                  organizar tudo pra você.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2 justify-center pt-4">
+                {[
+                  "Gastei R$ 45 no almoço",
+                  "R$ 120 de Uber esse mês",
+                  "Recebi R$ 3.000 de salário",
+                ].map((suggestion) => (
+                  <Button
+                    key={suggestion}
+                    variant="outline"
+                    size="sm"
+                    onClick={() => handleSendMessage(suggestion)}
+                    className="text-xs rounded-full"
+                  >
+                    {suggestion}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {messages.map((msg) => (
+            <ChatMessage
+              key={msg.id}
+              message={msg.content}
+              isUser={msg.isUser}
+              timestamp={msg.timestamp}
+            />
+          ))}
+
+          {isProcessing && (
+            <div className="flex justify-start">
+              <div className="bg-chat-assistant text-chat-assistant-foreground rounded-2xl rounded-bl-md px-4 py-3 border border-border">
+                <div className="flex gap-1">
+                  <span className="w-2 h-2 bg-primary rounded-full animate-pulse-soft" />
+                  <span
+                    className="w-2 h-2 bg-primary rounded-full animate-pulse-soft"
+                    style={{ animationDelay: "0.2s" }}
+                  />
+                  <span
+                    className="w-2 h-2 bg-primary rounded-full animate-pulse-soft"
+                    style={{ animationDelay: "0.4s" }}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </ScrollArea>
+
+      {/* Input */}
+      <ChatInput onSend={handleSendMessage} disabled={isProcessing} />
+    </div>
+  );
+};
+
+const Index = () => {
+  return (
+    <ProtectedRoute>
+      <IndexContent />
+    </ProtectedRoute>
+  );
+};
+
+export default Index;
