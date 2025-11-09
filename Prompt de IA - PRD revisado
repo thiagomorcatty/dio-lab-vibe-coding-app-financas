@@ -1,0 +1,193 @@
+📝 PRD: O Assistente Financeiro Pessoal
+Autor: Thigo (para o curso) Versão: 1.0 (Foco: MLP) Data: 09/11/2025
+
+1. A Visão: Por que este app precisa existir?
+Vamos ser honestos: ninguém gosta de preencher formulários de orçamento. Aplicativos financeiros atuais parecem lição de casa. Eles são frios, cheios de campos, e cada vez que você insere um gasto, parece que está sendo julgado. O resultado? As pessoas desistem.
+
+O Problema Emocional: O controle financeiro está associado à ansiedade, culpa e complexidade.
+
+Nossa Solução (A "Mágica"): E se, em vez de um formulário, você tivesse um assistente financeiro? Alguém para quem você pudesse simplesmente dizer: "Ei, gastei R$ 45 no almoço hoje" ou "Recebi meu salário!".
+
+Nossa visão é criar um aplicativo onde a interface principal é uma conversa. Queremos trocar a "fricção" dos formulários pela "fluidez" do chat. O objetivo não é apenas registrar gastos; é fazer o usuário se sentir no controle, aliviado e compreendido.
+
+2. O Público: Para quem estamos construindo?
+Nosso foco inicial não é o especialista em finanças. É o iniciante ansioso.
+
+Persona: "Camila, a Começadora Otimista"
+
+Quem é: 28 anos, designer júnior.
+
+História: Camila ganha um salário razoável, mas vive no "zero a zero". Ela sabe que precisa se organizar, mas a simples ideia de abrir uma planilha a paralisa.
+
+Tentativas Fracassadas: Ela já baixou 3 apps de finanças. Usou o primeiro por quatro dias (e esqueceu de registrar o Uber na sexta). O segundo era complicado demais. O terceiro ela nem abriu.
+
+O que ela realmente quer (O "Job-to-be-Done"): "Eu só quero saber para onde meu dinheiro está indo de um jeito fácil, sem me sentir burra ou culpada por ter comprado um café."
+
+3. O Produto Mínimo Adorável (MLP)
+Para conquistar a Camila, nosso MLP precisa ser mais do que funcional. Ele precisa ser mágico, simples e amigável.
+
+A experiência central é esta:
+
+A tela principal é um chat.
+
+O usuário digita (ou fala) uma transação.
+
+O Agente de IA responde imediatamente: "Anotado! 👍"
+
+O usuário fecha o app.
+
+Toda a complexidade (classificação, data, etc.) acontece nos bastidores.
+
+4. Funcionalidades-Chave (Épicos do MLP)
+Aqui está o detalhamento das funcionalidades com foco na experiência "adorável".
+
+Épico 1: O Registro Mágico (Registro via Chat)
+O que é: O usuário registra qualquer gasto ou receita usando linguagem 100% natural.
+
+História de Usuário: "Como Camila, eu quero poder digitar 'gastei 50 pila no iFood' ou '20 reais de uber' e quero que o app entenda imediatamente, para que eu me sinta eficiente e leve."
+
+Detalhes (O "Molho Secreto"):
+
+Inteligência de NLU (Natural Language Understanding): A IA deve extrair 3 entidades principais:
+
+Intenção: (Gasto, Receita, ou Pergunta).
+
+Valor: (R$ 50, 20 reais, 50 pila).
+
+Descrição: (iFood, uber).
+
+Feedback Imediato: A resposta da IA não pode ser robótica ("Transação registrada com sucesso"). Deve ser humana: "Feito! Anotado aqui." ou "Opa, R$ 50 no iFood. Entendido!".
+
+Épico 2: A Classificação que Pergunta (Classificação Proativa)
+O que é: O Agente de IA classifica o gasto automaticamente. Se tiver dúvidas, ele pergunta de forma inteligente.
+
+História de Usuário: "Como Camila, eu quero que o app aprenda meus hábitos (ex: 'Padaria da Esquina' é 'Alimentação'), para que eu não tenha que classificar a mesma coisa mil vezes."
+
+Detalhes (O "Molho Secreto"):
+
+Classificação Padrão: O modelo de IA deve ser treinado para associar "Uber" a "Transporte", "Netflix" a "Assinaturas", etc.
+
+A Pergunta "Adorável": Este é o ponto crucial. Quando a IA não sabe, ela não dá um erro. Ela pergunta de forma proativa e educada:
+
+Exemplo de Interação:
+
+Usuário: "Gastei R$ 180 na 'Mundo Verde'."
+
+Agente (IA): "Anotado! 👍 Ei, só pra eu aprender: 'Mundo Verde' é 'Alimentação' ou 'Saúde/Suplementos' para você?"
+
+(O usuário clica em um botão: 'Alimentação')
+
+Agente (IA): "Perfeito! Vou lembrar disso para a próxima."
+
+Épico 3: O Resumo que Alivia (Relatórios Conversacionais)
+O que é: O usuário pode tanto perguntar sobre seus gastos quanto ver um relatório visual simples.
+
+História de Usuário: "Como Camila, eu quero poder perguntar 'quanto eu já gastei com delivery esse mês?' e receber uma resposta direta, sem precisar navegar por menus e filtros."
+
+Detalhes (O "Molho Secreto"):
+
+Relatório por Chat (NLG - Natural Language Generation):
+
+Usuário: "Como estou esse mês?"
+
+Agente (IA): "Até agora, seus maiores gastos foram com 'Moradia' (R$ 1.500) e 'Alimentação' (R$ 620). Você gastou R$ 180 com 'Delivery'. Você está dentro do seu padrão!"
+
+Relatório Visual Simples (Tela 2): Além do chat, haverá uma tela (acessível por um ícone) mostrando um gráfico de pizza simples: "Seus gastos em Novembro". Isso dá a Camila a visão geral que ela precisa sem sobrecarregá-la.
+
+5. O Agente: Tom de Voz e Personalidade
+Este é o coração do "Lovable". Nosso Agente de IA não é um gerente de banco.
+
+Nome (Sugestão): Zeni (de "Zen") ou Orça.
+
+Personalidade: O "nerd" de finanças amigável.
+7. Funcionalidades Pós-MLP (A Visão V2)
+Assim que o usuário estiver engajado com o registro (MLP validado), expandiremos o valor do produto com as seguintes funcionalidades "adoráveis":
+
+Épico 4: O Construtor de Sonhos (Metas Financeiras)
+O que é: Permitir que o usuário crie e acompanhe metas financeiras (ex: uma viagem, um curso, uma reserva de emergência) de forma conversacional e motivadora.
+
+História de Usuário (Camila): "Como Camila, eu quero definir uma meta (como 'viajar nas férias'), e quero que o app me ajude a descobrir quanto eu preciso guardar por mês e me incentive no caminho, sem me fazer sentir mal se eu falhar um dia."
+
+Detalhes (O "Molho Secreto"):
+
+Criação Conversacional (Sem Formulários): A Camila não preenche um formulário de "Nova Meta". Ela conversa com o Agente.
+
+Exemplo de Interação:
+
+Usuário: "Quero começar a guardar dinheiro para viajar em Junho."
+
+Agente (IA): "Que demais! Uma viagem! ✈️ Você já sabe quanto vai precisar?"
+
+Usuário: "Acho que uns R$ 3.000."
+
+Agente (IA): "Perfeito. Faltam 7 meses. Isso dá cerca de R$ 430 por mês. Quer que eu crie a meta 'Viagem de Junho' e te ajude a acompanhar?"
+
+(Usuário clica: 'Sim, criar meta!')
+
+Micro-Contribuições ("Guarde o Trocado"): Esta é a funcionalidade "adorável" chave.
+
+Agente (IA): "Sua conta no supermercado deu R$ 147,50. Você quer arredondar para R$ 150,00 e guardar esses R$ 2,50 direto na sua meta 'Viagem de Junho'?"
+
+Acompanhamento Visual e Leve: Uma barra de progresso simples. O Agente comemora pequenas vitórias.
+
+Agente (IA): "Uhuul! Você guardou R$ 50 na sua meta. Você já está 10% mais perto da sua viagem!"
+
+Sem Punição: Se o mês foi fraco e o usuário não guardou, o Agente não diz "Você falhou". Ele diz:
+
+Agente (IA): "Ei, Camila, vi que este mês foi apertado e não conseguimos guardar muito para a 'Viagem'. Está tudo bem! Vamos focar no próximo mês, ainda temos tempo."
+
+Épico 5: O Conselheiro Sábio (Dicas e Insights Proativos)
+O que é: O Agente de IA analisa os padrões de gastos pessoais do usuário e oferece dicas e relatórios proativos, acionáveis e, o mais importante, sem julgamento.
+
+História de Usuário (Camila): "Como Camila, eu quero que o app note meus padrões (ex: gasto muito com delivery) e me dê dicas reais e práticas de onde eu posso economizar, sem me proibir de fazer o que gosto."
+
+Detalhes (O "Molho Secreto"):
+
+Baseado em Padrões, Não em Regras: A IA não dá dicas genéricas ("Gaste menos com café!"). Ela dá dicas baseadas nos dados da Camila.
+
+Timing e Permissão (O mais importante): O Agente não dá a dica na hora que ela gasta (o que gera culpa). Ele espera um momento calmo (ex: domingo à noite) e pede permissão.
+
+Exemplo de Interação:
+
+Agente (IA): "Oi Camila, bom domingo! Eu estava analisando seus gastos da semana e notei um padrão interessante. Posso compartilhar com você?"
+
+(Usuário clica: 'Claro, pode falar.')
+
+Agente (IA): "Eu vi que você pediu delivery 5 vezes esta semana, totalizando R$ 230. Que tal definirmos um 'desafio' pessoal de tentar pedir só 3 vezes na próxima semana? Isso poderia economizar uns R$ 90 para sua meta de viagem. O que acha?"
+
+Comemorando Vitórias (Reforço Positivo): O Agente também é proativo para elogiar.
+
+Agente (IA): "Parabéns, Camila! 🎉 Notei que este mês você gastou R$ 120 a menos com 'Transporte' do que no mês passado. Bom trabalho!"
+
+Insights Acionáveis:
+
+Agente (IA): "Notei que você tem 3 assinaturas de streaming (Netflix, Disney+, HBO) que somam R$ 110/mês. Você tem certeza que está usando todas elas? Só um lembrete para verificar!"
+Tom de Voz:
+
+É Prestativo: Sempre pronto para anotar.
+
+É Encorajador: "Anotado! Você está indo bem."
+
+NÃO É Julgador (Regra de Ouro): Ele nunca diz "Você gastou de novo com isso?". Ele é 100% neutro sobre o gasto. O trabalho dele é informar, não julgar.
+
+6. Plano de Validação do MLP
+Nosso sucesso não é medido por "quantas features temos", mas por "como os usuários se sentem" e "com que frequência eles voltam".
+
+Hipótese Central: Uma interface de chat amigável e sem julgamento fará com que usuários (como a Camila) registrem seus gastos com maior frequência e menor ansiedade.
+
+Método: Teste qualitativo com 5 a 7 "Camilas".
+
+Tarefas: Peça que usem o app por 1 semana.
+
+Métricas de "Amor" (Lovable Metrics):
+
+Taxa de Adesão: Quantos % dos usuários registraram pelo menos um gasto por 5 dias seguidos? (Isso é mais importante que o valor total registrado).
+
+Entrevista Pós-Teste (Perguntas-chave):
+
+"De 0 a 10, quão fácil foi registrar um gasto?" (Buscamos 9-10).
+
+"De 0 a 10, quão ansioso(a) você se sentiu ao abrir o app para registrar um gasto?" (Buscamos 0-2).
+
+"Descreva o assistente em 3 palavras." (Buscamos: "fácil", "rápido", "amigo", "leve").
+
