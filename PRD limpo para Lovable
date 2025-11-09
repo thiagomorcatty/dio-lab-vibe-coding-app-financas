@@ -1,0 +1,95 @@
+# PRD: O Assistente Financeiro Pessoal (Foco: MLP)
+
+**Autor:** Thigo (para o curso)
+**Versão:** 1.0 (Foco: MLP + Visão V2)
+**Data:** 09/11/2025
+
+---
+
+## 1. A Visão: Por que este app precisa existir?
+
+Muitos aplicativos financeiros atuais parecem lição de casa. Eles são frios, cheios de campos, e cada vez que você insere um gasto, parece que está sendo julgado. O resultado? As pessoas desistem.
+
+**O Problema Emocional:** O controle financeiro está associado à ansiedade, culpa e complexidade.
+
+**Nossa Solução (A "Mágica"):** E se, em vez de um formulário, você tivesse um assistente financeiro? Alguém para quem você pudesse simplesmente dizer: "Ei, gastei R$ 45 no almoço hoje".
+
+Nossa visão é criar um aplicativo onde a interface principal é uma **conversa**. Queremos trocar a "fricção" dos formulários pela "fluidez" do chat. O objetivo não é apenas registrar gastos; é fazer o usuário se sentir **no controle, aliviado e compreendido**.
+
+---
+
+## 2. O Público: Para quem estamos construindo?
+
+Nosso foco inicial não é o especialista em finanças. É o iniciante ansioso.
+
+> **Persona: "Camila, a Começadora Otimista"**
+> 
+> * **Quem é:** 28 anos, designer júnior.
+> * **História:** Camila ganha um salário razoável, mas vive no "zero a zero". Ela sabe que *precisa* se organizar, mas a simples ideia de abrir uma planilha a paralisa.
+> * **Tentativas Fracassadas:** Ela já baixou 3 apps de finanças. Usou o primeiro por quatro dias (e esqueceu de registrar o Uber na sexta). O segundo era complicado demais.
+> * **O que ela realmente quer (O "Job-to-be-Done"):** "Eu só quero saber para onde meu dinheiro está indo de um jeito fácil, sem me sentir burra ou culpada por ter comprado um café."
+
+---
+
+## 3. O Produto Mínimo *Adorável* (MLP)
+
+Para conquistar a Camila, nosso MLP precisa ser **mágico, simples e amigável**.
+
+A experiência central é esta:
+* A tela principal é um chat.
+* O usuário digita (ou fala) uma transação.
+* O Agente de IA responde imediatamente: "Anotado! 👍"
+* O usuário fecha o app.
+
+Toda a complexidade (classificação, data, etc.) acontece nos bastidores.
+
+---
+
+## 4. Funcionalidades-Chave do MLP (V1)
+
+### Épico 1: O Registro Mágico (Registro via Chat)
+* **O que é:** O usuário registra qualquer gasto ou receita usando linguagem 100% natural.
+* **História de Usuário:** "Como Camila, eu quero poder digitar *'gastei 50 pila no iFood'* ou *'20 reais de uber'* e quero que o app entenda imediatamente, para que eu me sinta eficiente e leve."
+* **Detalhes (O "Molho Secreto"):**
+    * **Inteligência de NLU (Natural Language Understanding):** A IA deve extrair 3 entidades principais: Intenção (Gasto/Receita), Valor (R$ 50), e Descrição (iFood).
+    * **Feedback Imediato:** A resposta da IA deve ser humana: "Feito! Anotado aqui." ou "Opa, R$ 50 no iFood. Entendido!".
+
+### Épico 2: A Classificação que Pergunta (Classificação Proativa)
+* **O que é:** O Agente de IA classifica o gasto automaticamente. Se tiver dúvidas, ele pergunta de forma inteligente.
+* **História de Usuário:** "Como Camila, eu quero que o app aprenda meus hábitos (ex: 'Padaria da Esquina' é 'Alimentação'), para que eu não tenha que classificar a mesma coisa mil vezes."
+* **Detalhes (O "Molho Secreto"):**
+    * **Classificação Padrão:** O modelo de IA deve ser treinado para associar "Uber" a "Transporte", "Netflix" a "Assinaturas".
+    * **A Pergunta "Adorável":** Quando a IA não sabe, ela não dá um erro. Ela pergunta:
+        > *Usuário:* "Gastei R$ 180 na 'Mundo Verde'."
+        > *Agente (IA):* "Anotado! 👍 Ei, só pra eu aprender: 'Mundo Verde' é 'Alimentação' ou 'Saúde/Suplementos' para você?"
+
+### Épico 3: O Resumo que Alivia (Relatórios Conversacionais)
+* **O que é:** O usuário pode tanto *perguntar* sobre seus gastos quanto ver um relatório visual simples.
+* **História de Usuário:** "Como Camila, eu quero poder perguntar *'quanto eu já gastei com delivery esse mês?'* e receber uma resposta direta, sem precisar navegar por menus e filtros."
+* **Detalhes (O "Molho Secreto"):**
+    * **Relatório por Chat (NLG - Natural Language Generation):**
+        > *Usuário:* "Como estou esse mês?"
+        > *Agente (IA):* "Até agora, seus maiores gastos foram com 'Moradia' (R$ 1.500) e 'Alimentação' (R$ 620). Você gastou R$ 180 com 'Delivery'."
+    * **Relatório Visual Simples (Tela 2):** Além do chat, haverá uma tela (acessível por um ícone) mostrando um gráfico de pizza simples: "Seus gastos em Novembro".
+
+---
+
+## 5. Funcionalidades Pós-MLP (A Visão V2)
+
+Assim que o usuário estiver engajado com o registro (MLP validado), expandiremos o valor do produto com as seguintes funcionalidades "adoráveis":
+
+### Épico 4: O Construtor de Sonhos (Metas Financeiras)
+* **O que é:** Permitir que o usuário crie e acompanhe metas financeiras (ex: uma viagem, um curso) de forma conversacional e motivadora.
+* **História de Usuário:** "Como Camila, eu quero definir uma meta (como 'viajar nas férias'), e quero que o app me ajude a descobrir *quanto* eu preciso guardar por mês e me incentive no caminho, sem me fazer sentir mal se eu falhar um dia."
+* **Detalhes (O "Molho Secreto"):**
+    * **Criação Conversacional:** O usuário *conversa* com o Agente para criar a meta.
+        > *Usuário:* "Quero começar a guardar dinheiro para viajar em Junho."
+        > *Agente (IA):* "Que demais! Uma viagem! ✈️ Você já sabe quanto vai precisar?"
+        > *Usuário:* "Acho que uns R$ 3.000."
+        > *Agente (IA):* "Perfeito. Faltam 7 meses. Isso dá cerca de R$ 430 por mês. Quer que eu crie a meta 'Viagem de Junho'?"
+    * **Micro-Contribuições:** O Agente sugere "arredondar" gastos para contribuir com a meta.
+    * **Sem Punição:** Se o usuário não atinge a meta do mês, o Agente é encorajador: "Ei, este mês foi apertado. Está tudo bem! Vamos focar no próximo mês."
+
+### Épico 5: O Conselheiro Sábio (Dicas e Insights Proativos)
+* **O que é:** O Agente de IA analisa os padrões de gastos *pessoais* e oferece dicas proativas e *sem julgamento*.
+* **História de Usuário:** "Como Camila, eu quero que o app note meus padrões (
