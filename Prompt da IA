@@ -1,0 +1,83 @@
+Certo! Esta é uma excelente ideia de projeto. O ponto central é trocar a "fricção" dos formulários pela "fluidez" de uma conversa.
+
+Aqui está uma proposta de **Plano de MVP (Produto Mínimo Viável)** para o seu projeto, focada em validar a hipótese central: "Os usuários terão mais facilidade e adesão ao controle financeiro se a interface principal for um chat."
+
+---
+
+##  PRD: Plano de MVP - "Agente Financeiro Pessoal"
+
+### 1. Objetivo do MVP
+Validar se uma interface conversacional (chat) é mais eficaz para o registro e acompanhamento de finanças do que os métodos tradicionais (formulários/planilhas), especificamente para o público iniciante.
+
+### 2. Problema e Público-Alvo
+* **Problema:** A entrada manual de dados em apps de finanças é tediosa e complexa, levando à desistência.
+* **Público-Alvo:** Pessoas com pouca ou nenhuma experiência em controle financeiro que buscam uma solução prática e "amigável".
+
+### 3. Requisitos Funcionais do MVP (O "Mínimo Viável")
+
+Para um MVP, precisamos ser rigorosos e focar **apenas** no que é essencial para testar a ideia. Das 5 funcionalidades que você listou, vamos priorizar 3 para o MVP:
+
+#### RF-01: Registro de Transação via Chat (Core)
+* **Descrição:** O usuário deve ser capaz de registrar um gasto ou receita digitando uma frase simples em linguagem natural na tela principal (o chat).
+* **História de Usuário:** "Como um usuário iniciante, eu quero poder digitar *'gastei 50 reais no iFood'* ou *'almoço de hoje R$22,50'* para que o app registre meu gasto sem eu precisar preencher um formulário."
+* **Recursos de IA Necessários:**
+    * **NLU (Natural Language Understanding):** Para extrair as *intenções* (gasto, receita), *entidades* (valor: R$ 50,00) e *descrição* (iFood, almoço).
+
+#### RF-02: Classificação Automática (Core)
+* **Descrição:** O "Agente Financeiro" (IA) deve classificar automaticamente a transação. Se não tiver certeza, ele deve *perguntar* ao usuário de forma interativa.
+* **História de Usuário:** "Como um usuário, eu quero que o app entenda que *'iFood'* é 'Alimentação', para que eu não tenha que classificar manualmente."
+* **Exemplo de Interação (Dúvida da IA):**
+    * *Usuário:* "Gastei R$ 150 na C&A."
+    * *Agente (IA):* "Registrado! Só para eu saber, essa compra na C&A foi 'Roupas' ou 'Presente'?"
+* **Recursos de IA Necessários:**
+    * **Modelo de Classificação:** Treinado com descrições comuns para categorizar (ex: "Uber" -> "Transporte", "Conta de luz" -> "Moradia").
+
+#### RF-03: Visualização de Relatório Simplificado (O "Payoff")
+* **Descrição:** O usuário precisa ver *onde* o dinheiro está indo. O MVP deve ter um relatório visual básico, acessível por um botão fora do chat.
+* **História de Usuário:** "Como um usuário, eu quero ver um gráfico simples que me mostre 'quanto gastei com alimentação este mês', para eu saber se estou exagerando."
+* **Recursos Necessários:**
+    * Uma tela de "Relatório" com um gráfico de pizza ou barras mostrando os gastos por categoria no mês atual.
+
+> **Funcionalidades para a V2 (Pós-MVP):**
+> * *Definição de Metas:* É uma ótima funcionalidade, mas adiciona complexidade. Primeiro, validamos se as pessoas conseguem *registrar* os gastos.
+> * *Dicas de Economia:* Esse é o "próximo nível" de inteligência. Focaremos o MVP em ser um bom "ouvinte" (registrar) antes de ser um "conselheiro" (dar dicas).
+
+### 4. Esboço das Telas/Jornada do Usuário
+
+Para o MVP, precisamos de pouquíssimas telas:
+
+1.  **Tela 1: Chat (Tela Principal)**
+    * É a primeira tela que o usuário vê.
+    * Um campo de texto na parte inferior (como o WhatsApp).
+    * O "Agente Financeiro" (IA) dá as boas-vindas: "Olá! O que você gostaria de registrar hoje?"
+    * Um botão/ícone visível para acessar a "Tela 2: Relatório".
+
+2.  **Tela 2: Relatório (Visão Geral)**
+    * Mostra o total gasto no mês.
+    * Um gráfico de pizza (ou barras) com as 5 principais categorias de gastos (ex: Alimentação, Transporte, Moradia, Lazer, Outros).
+    * *Não* é no chat. É uma tela visual dedicada para que o usuário possa "respirar" e analisar os dados.
+
+3.  **Tela 3: Configurações (Mínima)**
+    * Apenas o essencial (ex: Sair, gerenciar conta).
+
+### 5. Plano de Validação Inicial
+
+Como saberemos se o MVP foi um sucesso?
+
+* **Hipótese Central:** Uma interface de chat aumentará a *frequência* e a *consistência* do registro de gastos por usuários iniciantes.
+* **Método:** Teste de usabilidade qualitativo (fechado).
+* **Passos:**
+    1.  **Recrutar:** Encontrar 5-7 pessoas que se encaixem no público-alvo (iniciantes em finanças).
+    2.  **Tarefa:** Pedir que usem o aplicativo como sua ferramenta *única* de controle de gastos por 1 semana.
+    3.  **Métrica de Sucesso (Quantitativa):** Quantos registros, em média, o usuário fez por dia? (Adesão).
+    4.  **Métrica de Sucesso (Qualitativa):** Ao final da semana, fazer uma entrevista:
+        * "Quão fácil foi registrar um gasto de 0 (muito difícil) a 5 (muito fácil)?"
+        * "Houve algum gasto que você *deixou* de registrar? Por quê?"
+        * "O que a IA não entendeu nas suas conversas?"
+        * "O relatório simples foi útil para você?"
+
+Com base nas respostas dessas 5-7 pessoas, você saberá exatamente o que funcionou (ex: "Amara registrar via chat!") e o que precisa melhorar (ex: "A IA nunca entende quando eu falo 'pix'").
+
+---
+
+O que você acha deste plano inicial? Podemos detalhar mais alguma seção, como as histórias de usuário ou os recursos de IA necessários?
